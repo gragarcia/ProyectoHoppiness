@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Devcrud">
+    <title>Hoppiness</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'AppHoppiness/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Pigga main styles -->
+	<link rel="stylesheet" href="{% static 'AppHoppiness/css/pigga.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    
+    
+    <!-- End of First Navigation --> 
+    <!-- Second Navigation -->
+    <nav class="nav-second navbar custom-navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: honeydew;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Inicio' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'ListaBebidas' %}">Bebidas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'ListaComidas' %}">Comidas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Promos' %}">Promos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Eventos' %}">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'ListaValoraciones' %}">Valoraciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'EditarUsuario' %}">Gestión de Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'AcercaDeMi' %}">Acerca de la creadora</a>
+                    </li>
+                </ul> 
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">  
+                        
+                        {% if user.is_authenticated %}
+                        <p> Hola, {{user.username}}</p>
+                            <a href="{% url 'Logout' %}" class="btn btn-primary btn-sm">Cerrar Sesión</a>
+                        {% endif %} 
+                        {% if not user.is_authenticated %}   
+                        <a href="{% url 'Registro' %}" class="btn btn-primary btn-sm">Registrarse</a>
+                        <a href="{% url 'Login' %}" class="btn btn-primary btn-sm">Iniciar Sesión</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Of Second Navigation --> 
+    <!-- Page Header -->
+    <header class="header">
+        <div class="overlay">
+            {% block contenidoModificable %}    
+            {% endblock %}
+            
+        </div>      
+    </header>
+    <!-- End Of Page Header --> 
+
+    <!-- Service Section -->
+    <section id="service" class="pattern-style-4 has-overlay">
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">                
+                <div class="col-md-6">
+                    <h3 class="section-title">Horarios de Apertura</h3>
+                    <p class="mb-1 font-weight-bold">Lunes - Viernes : <span class="font-weight-normal pl-2 text-muted">18:00 pm - 1:00 pm</span></p>
+                    <p class="mb-1 font-weight-bold">Sábados - Domingos : <span class="font-weight-normal pl-2 text-muted">19:00 pm - 2:00 am</span></p>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <img src="{% static 'AppHoppiness/imgs/about-1.jpeg'%}"  class="w-100 rounded shadow">
+                        </div>
+                        <div class="col">
+                            <img src="{% static 'AppHoppiness/imgs/about-2.jpeg'%}"class="w-100 rounded shadow">
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+            <div class="section-devider my-6 transparent"></div>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h6 class="section-subtitle">Acerca de Hoppiness</h6>
+                    <p>Hoppiness es un lugar de encuentros y de buenos momentos. 
+                        El bar de Cofico, abierto de miercoles a domingo para brindarte una increíble experiencia. 
+                        Más de 9 estilos de cerveza artesanal tirada, fernet artesanal tirado y Gin Tonic Artesanal. 
+                        También recargamos growlers!"</p>
+                </div>
+                <div class="col-md-6 order-1 order-sm-first">
+                    <div class="row">
+                        <div class="col">
+                            <img alt="45 ZORRAS IPA - VULP" src="{% static 'AppHoppiness/imgs/about-3.jpeg'%}" class="w-100 rounded shadow">
+                        </div>
+                        <div class="col">
+                            <img alt="HONEY - CREFFT" src="{% static 'AppHoppiness/imgs/about-4.jpeg'%}" class="w-100 rounded shadow">
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End OF About Section -->
+
+    <!-- Prefooter Section  -->
+    <div class="py-4 border border-lighter border-bottom-0 border-left-0 border-right-0 bg-dark">
+        <div class="container">
+            <div class="row justify-content-between align-items-center text-center">
+                <div class="col-md-3 text-md-left mb-3 mb-md-0">
+                    <img src="{% static 'AppHoppiness/imgs/navbar-brand.png' %}" width="100" > <p> Para más info, seguinos en Instagram @Hoppinesscofico </p> 
+                    <a href="https://www.instagram.com/hoppinesscofico/?hl=es" ><i class="ti-instagram"></i></a>
+                    
+                </div>
+                <div class="col-md-9 text-md-right">
+                    <a href="https://www.google.com/maps/vt/data=1cnlaMrKDycbQThnftadkcuG0YNk_9SjPE0k5Km01gMJZwm01jikobqwqA0zl9g2I5B3dDzgxGtMq3VBCqqgxKqXFTm12v4S3KoDhLMDplU0qna6NLOaNhOrFJcsBWdCejxFb_bIJaxkh5grhja1tSY7AvK5R8aJnHs0JwmvZRLZfxB3" class="px-3"><medium class="font-weight-bold">Nuestra Ubicación</medium></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of PreFooter Section -->
+
+    <!-- core  -->
+    <script src="{% static 'AppHoppiness/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'AppHoppiness/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+    <!-- bootstrap affix -->
+    <script src="{% static 'AppHoppiness/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+    <!-- Pigga js -->
+    <script src="{% static 'AppHoppiness/js/pigga.js' %}"></script>
+
+</body>
+</html>

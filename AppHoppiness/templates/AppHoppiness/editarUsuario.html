@@ -1,0 +1,13 @@
+{% extends 'AppHoppiness/padre.html' %}
+
+{% load static %}
+
+{% block contenidoModificable %}
+<h1>Editar Usuarios</h1><br></br>         
+    <form action="" method="POST">{% csrf_token %}
+        {{miFormulario.as_p}}
+        
+        <button type="submit" class="btn btn-primary btn-block">Editar</button>
+    </form>
+
+{% endblock %}

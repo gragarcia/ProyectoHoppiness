@@ -1,0 +1,26 @@
+{% extends 'AppHoppiness/padre.html' %}
+
+{% load static %}
+
+{% block contenidoModificable %}
+
+{% if miFormulario.errors %}
+<p style="color: red;"> Los Datos son incorrectos.</p>
+
+{% endif %}
+
+<div class="container raise-1">
+<h3 class="section-title mb-6 pb-3 text-center">Editar elemento bebida</h3>
+
+<form action="" method="POST"> {% csrf_token %}
+
+    <table><h1>{{ miFormulario.as_table }}</h1></table>    
+
+
+    <input type="submit" value="Editar"> 
+  
+    
+</form>
+
+
+{% endblock %}

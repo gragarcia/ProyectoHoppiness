@@ -1,0 +1,42 @@
+{% extends 'AppHoppiness/padre.html' %}
+
+{% load static %}
+
+{% block contenidoModificable %}
+
+<div class="container raise-1">
+    <br>
+    <h6 class="section-title mb-6 pb-3 text-center">Nuestras bebidas artesanales</h6>
+    <a href="{% url 'CrearBebida' %}" class="btn btn-primary btn-sm ">Cargar nueva Bebida Artesanal</a>
+    <div><br></div>
+    <div class="row">
+        {% for i in object_list %}
+        <div class="col-md-6 mb-4">
+            <a href="javascrip:void(0)" class="custom-list">
+                <div class="img-holder">
+                    <img src="{{i.imagen}}" >
+                </div>
+
+                <div class="info">
+                    <div class="head clearfix">
+                        <h5 class="title float-left">{{i.nombre}}</h5>
+                        <p class="float-right text-primary">Precio regular: ${{i.precio_regular}}</p>
+                        <br>
+                        <p class="float-right text-primary">Precio Happy Hour: ${{i.precio_happy_hour}}</p>
+                    </div>
+                    <div class="body">
+                        <p>{{i.estilo}}</p>
+                        <p>{{i.volumen}}</p>
+                    </div>   
+                </div class="head clearfix">
+                    <a href="{% url 'BorrarComida' i.id %}" class="btn btn-primary btn-sm ">Eliminar</a>
+                    <a href="{% url 'EditarComida' i.id %}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{% url 'DetalleComida' i.id %}" class="btn btn-primary btn-sm ">Ver Detalle</a>
+            
+            </button>
+        </div>
+        {% endfor %} 
+    </div>                  
+</div>
+
+{% endblock %}

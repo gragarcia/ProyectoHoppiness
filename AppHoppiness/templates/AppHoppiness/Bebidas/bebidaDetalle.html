@@ -1,0 +1,49 @@
+{% extends 'AppHoppiness/padre.html' %}
+{% load static %}
+
+{% block contenidoModificable %}
+
+<section id="book-table" class="bg-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 d-none d-md-block">
+                <img src="{{bebida.imagen}}" class="w-100 rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="post-title">
+                        <p class="post-title text-primary"> Nombre: {{bebida.nombre}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary"> Categoría: {{bebida.categoria}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary"> Estilo: {{bebida.estilo}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary"> IBU: {{bebida.ibu}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary"> Marca: {{bebida.marca}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary"> % Alcohol: {{bebida.porcentaje_alcohol}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary">Precio regular: $ {{bebida.precio_regular}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary">Precio Happy Hour: $ {{bebida.precio_happy_hour}}</p>
+                    </div>
+                    <div class="post-title">
+                        <p class="post-title text-primary">Volumen: {{bebida.volumen}}</p>
+                    </div>
+                    <a href="{% url 'ListaBebidas' %}" class="btn btn-primary">Regresar</a>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}    

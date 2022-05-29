@@ -1,0 +1,30 @@
+{% extends 'AppHoppiness/padre.html' %}
+
+{% load static %}
+
+{% block contenidoModificable %}
+
+<div class="container raise-1">
+    <div><br></div>
+    <div class="row">
+        {% for i in object_list %}
+        <div class="col-md-6 mb-4">
+            <a href="javascrip:void(0)" class="custom-list">
+                <div class="media align-items-center mb-3">
+                    <img src="{{i.imagen}}" >
+                    <div class="media-body">
+                        <h6 class="mt-1 mb-0">{{i.nombre}}</h6>
+                        <small class="text-muted mb-0">{{i.apellido }}</small>    
+                        <br>
+                        <p class="mb-0">"{{i.opinion}}"</p> 
+                        <br>
+                        <p class="mb-0">Estrellas: {{i.estrellas}}</p>
+                    </div>
+                </div>
+                
+        </div>
+        {% endfor %} 
+    </div>                  
+</div>
+
+{% endblock %}

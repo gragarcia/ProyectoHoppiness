@@ -1,0 +1,19 @@
+{% load static %}
+
+    {% if miFormulario.errors %}
+
+    <p style="color: red;"> Los Datos son incorrectos.</p>
+
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+
+        <table>
+
+            {{miFormulario.asTable}}
+
+        </table>    
+
+        <input type="submit" value="Guardar">  
+
+    </form>

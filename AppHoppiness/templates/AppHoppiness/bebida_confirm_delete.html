@@ -1,0 +1,21 @@
+{% extends 'AppHoppiness/padre.html' %}
+
+{% load static %}
+
+{% block contenidoModificable %}
+
+<div class="container raise-1">
+
+<form action="" method="POST"> {% csrf_token %}
+    <h3 class="section-title mb-6 pb-3 text-center">Estás seguro que deseas borrar esta comida?</h3> 
+    <h3 class="section-title mb-6 pb-3 text-center">{{object}}</h3> 
+    <input type="submit" class="btn btn-primary " value="Borrar"> 
+    <a href="{% url 'ListaBebidas' %}" class="btn btn-primary">Cancelar</a>
+  
+    
+</form>
+{% endblock %}
+
+
+
+
